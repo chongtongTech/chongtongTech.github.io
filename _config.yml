@@ -1,47 +1,69 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
 # Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: 黄琦雲的博客
-description: > # this means to ignore newlines until "baseurl:"
-  Material theme based on <a href="http://materializecss.com">Materialize.css</a> for jekyll sites
-baseurl: ""
-url: "https://knightyun.github.io"
-permalink: /:year/:month/:day/:title
-repository: knightyun/knightyun.github.io
-paginate: 5
+title: 重瞳Tech Blog
+url: "https://btboyhappy1993.github.io/"    # the protocol and hostname of your site, eg. `http://laobubu.github.io`
+baseurl: "" # the prefix of your site uri, eg. `"/jekyll-theme-EasyBook"` or empty string `""`
+description: >
+  One or more sentences introducing this blog.
 
-# MatJek specific configurations
-github_profile: "https://github.com/knightyun"
-user: "黄琦雲"
-user_email: "2386209384@qq.com"
-# contact_url: "https://goo.gl/tVljbV"
-# google_tracking_id: "UA-96359860-1"
-# google_site_verification: "UA-96359860-1"
-# disqus_shortname: "黄琦雲"
+# Your information
+email: chongtongtech@gmail.com
+author: 重瞳Tech
+avatar: "//www.gravatar.com/avatar/your_email_md5?d=mm&s=135"
+profile: One sentence introducing yourself.
+#twitter_username: twitter_username
+#github_username:  github_username
+profile_links:
+  Email: "mailto:chongtongtech@gmail.com"
+  GitHub: "https://github.com/btboyhappy1993/btboyhappy1993.github.io"
+  # You can add more profile links above, or edit _includes/sidebar.html 
+
+# 评论系统
+# Comment Service (Disqus or 多说)
+#  choose one and un-comment the line to active it
+#disqus_shortname: xxx   # get one: https://disqus.com/admin/signup/
+#duoshuo_shortname: xxx  # get one: http://duoshuo.com/create-site/
+
+# Gitalk
+gitalk:
+  enable: true    #是否开启Gitalk评论
+  clientID: 6d95a9e5952c73a51af0                            #生成的clientID
+  clientSecret: 0a5147b99e65572d3d1be22dc426b3cddef7d490    #生成的clientSecret
+  repo: btboyhappy1993.github.io    #仓库名称
+  owner: btboyhappy1993    #github用户名
+  admin: btboyhappy1993
+  distractionFreeMode: true #是否启用类似FB的阴影遮罩
+
+excerpt_separator: <!--more-->
+
+header:
+  links:             # Links on the header. Link to in-site page with a slash as prefix
+    About: /about/
+    Category: /category/
+    Donate: https://laobubu.net/donate.html
+
+permalink: /archivers/:title
+plugins:
+ - jekyll-paginate
+ - jekyll-gist
+ - jemoji
 
 # Build settings
+paginate: 5
+paginate_path: "page:num"
+
+highlighter: rouge
 markdown: kramdown
-plugins:
-  - jekyll-feed
-  - jekyll-paginate
-  - jekyll-seo-tag
-  - jekyll-sitemap
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - README.md
-sass:
-  style: compressed
-future: true
+
+# https://jekyllrb.com/docs/configuration/#precedence
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  math_engine: mathjax

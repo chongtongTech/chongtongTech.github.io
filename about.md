@@ -1,7 +1,9 @@
 ---
 layout: page
-title: "About Me"
-css: ["about.css", "animate.css", "morphext.css"]
-js: ["morphext.min.js", "about.js"]
+title: About
+permalink: /about/
 ---
-{% include about.html %}
+
+Welcome to this website!
+
+> This website is using [laobubu](http://laobubu.net)'s theme: [EasyBook](https://github.com/laobubu/jekyll-theme-EasyBook)
