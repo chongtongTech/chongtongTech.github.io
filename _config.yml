@@ -1,5 +1,5 @@
 # Site settings
-title: 重瞳Tech Blog
+title: 重瞳Tech's Blog
 url: "https://btboyhappy1993.github.io/"    # the protocol and hostname of your site, eg. `http://laobubu.github.io`
 baseurl: "" # the prefix of your site uri, eg. `"/jekyll-theme-EasyBook"` or empty string `""`
 description: >
@@ -8,13 +8,13 @@ description: >
 # Your information
 email: chongtongtech@gmail.com
 author: 重瞳Tech
-avatar: "//www.gravatar.com/avatar/your_email_md5?d=mm&s=135"
-profile: One sentence introducing yourself.
+avatar: "//headImgUrl"
+profile: 唯刀百辟，唯心不易
 #twitter_username: twitter_username
 #github_username:  github_username
 profile_links:
   Email: "mailto:chongtongtech@gmail.com"
-  GitHub: "https://github.com/btboyhappy1993/btboyhappy1993.github.io"
+  GitHub: "https://github.com/btboyhappy1993"
   # You can add more profile links above, or edit _includes/sidebar.html 
 
 # 评论系统
@@ -39,7 +39,7 @@ header:
   links:             # Links on the header. Link to in-site page with a slash as prefix
     About: /about/
     Category: /category/
-    Donate: https://laobubu.net/donate.html
+    # Donate: https://laobubu.net/donate.html
 
 permalink: /archivers/:title
 plugins:
@@ -67,3 +67,6 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
   math_engine: mathjax
+
+gems:
+  - jekyll-sitemap
