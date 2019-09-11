@@ -10,8 +10,6 @@ email: chongtongtech@gmail.com
 author: 重瞳Tech
 avatar: "//headImgUrl"
 profile: 唯刀百辟，唯心不易
-#twitter_username: twitter_username
-github_username:  btboyhappy1993
 profile_links:
   Email: "mailto:chongtongtech@gmail.com"
   GitHub: "https://github.com/btboyhappy1993"
@@ -54,7 +52,6 @@ paginate_path: "page:num"
 highlighter: rouge
 markdown: kramdown
 
-# https://jekyllrb.com/docs/configuration/#precedence
 defaults:
   -
     scope:
