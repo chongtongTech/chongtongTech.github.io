@@ -5,13 +5,20 @@ permalink: /file/
 ---
 
 <div class="home">
-  <h1 class="page-heading">File</h1>
+    <h1 class="page-heading">File</h1>
 
-  <ul class="post-list">
+    <ul class="post-list">
 
-<ul>
-<li><span>{{ post.date | date: "%b %d" }}</span> » <a href="{{ site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
-</ul>
-  </ul>
-  
+        <ul>
+            {% for post in site.date %}
+            {% if post.title != null %}
+            <li>
+                <span>{{ post.date | date: "%b %d" }}</span>
+                 » <a href="{{ site.baseurl}}{{ post.url }}">{{ post.title }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </ul>
+
 </div>
