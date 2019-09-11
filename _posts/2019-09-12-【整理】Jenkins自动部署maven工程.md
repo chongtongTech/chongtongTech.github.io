@@ -26,9 +26,11 @@ permalink: /archivers/20190912
  在[oracle官网](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)下载JDK8的linux版本，选择tar.gz后缀的。
  
 解压压缩包：
+
 ```
 tar -zxvf jdk-8u60-linux-x64.tar.gz
 ```
+
 配置环境变量：
 
 ```
@@ -55,15 +57,20 @@ java -version
 ```
 tar -zxvf apache-tomcat-8.5.34.tar.gz
 ```
+
 编辑配置文件`conf/server.xml`，配置端口、线程池：
+
 ```xml
 <Connector port="9090" protocol="HTTP/1.1" connectionTimeout="20000"
 redirectPort="8443" maxThreads="300"/>
 ```
+
 编辑`bin/catalina.sh`，配置jvm：增加
+
 ```
 JAVA_OPTS="-Xms2048m -Xmx4096m -Xss1024K -XX:PermSize=128m -XX:MaxPermSize=256m"
 ```
+
 **启动tomcat命令**：
 进入tomcat下`bin`目录，执行`./startup.sh`
 
@@ -79,11 +86,15 @@ ps -ef | grep tomcat
 
  - **安装maven**
  下载maven，[下载网址](http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz)。
+
  在linux目录下解压：
+
 ```
 tar -zxvf apache-maven-3.5.4-bin.tar.gz
 ```
+
 配置环境变量：
+
 ```
 vi /etc/profile
 
@@ -100,6 +111,7 @@ mvn -version
 ```
 
  - **安装docker**
+
 ```
 #安装一些必要的系统工具
 yum install -y yum-utils device-mapper-persistent-data lvm2
@@ -119,12 +131,15 @@ systemctl start docker
 #查看版本
 docker version
 ```
+
 配置镜像加速地址（网易）：
 
 ```
 vi  /etc/docker/daemon.json
 ```
+
 文件中修改成这个：
+
 ```json
 {
   "registry-mirrors": ["http://hub-mirror.c.163.com"]
@@ -132,10 +147,13 @@ vi  /etc/docker/daemon.json
 ```
 
  - **安装git**
+
 ```
 yum -y install git
 ```
+
  - **安装svn**
+
 ```
 yum install -y subversion
 ```
@@ -149,6 +167,7 @@ yum install -y subversion
 ```
 nohup java -jar jenkins.war --httpPort=8088 --prefix=/jenkins &
 ```
+
 注意：
 httpPort：端口号
 prefix：URL后缀名
@@ -156,8 +175,7 @@ prefix：URL后缀名
 
  - **安装插件**
  设置插件下载地址：（由于默认的下载地址是`https`可能访问不了，改成`http`就行了）
- 选择“**系统管理-插件管理-高级-升级站点**”，设置为： http://updates.jenkins.io/update-center.json
- 选择“**可选插件**”搜索安装插件“Subversion Plug-in”、“Git plugin”、“Deploy to container Plugin”、“Maven Integration plugin”、“Publish Over FTP”、“Publish Over SSH”
+ 选择“**系统管理-插件管理-高级-升级站点**”，设置为： `http://updates.jenkins.io/update-center.json` 选择“**可选插件**”搜索安装插件`Subversion Plug-in`、`Git plugin`、`Deploy to container Plugin`、`Maven Integration plugin`、`Publish Over FTP`、`Publish Over SSH`
  
  - **设置相关配置**
  选择“**系统管理-全局工具配置**”，设置各种软件的linux地址
@@ -165,25 +183,38 @@ prefix：URL后缀名
 ## 5. 构建maven项目，并自动打成jar/war包
 
  1. **构建maven工程任务**
+ 
  ![在这里插入图片描述](https://img-blog.csdn.net/20180930173147231?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J0Ym95aGFwcHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
  2. **添加描述**
+
  ![在这里插入图片描述](https://img-blog.csdn.net/20180930173226487?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J0Ym95aGFwcHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
  3. **增加git/svn的代码管理地址**
+
 ![在这里插入图片描述](https://img-blog.csdn.net/20180930173240730?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J0Ym95aGFwcHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
 ![在这里插入图片描述](https://img-blog.csdn.net/20180930173257529?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J0Ym95aGFwcHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
  4. **构建命令**
+
 ![在这里插入图片描述](https://img-blog.csdn.net/20180930173421733?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J0Ym95aGFwcHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
 
 ```
 clean package -Dmaven.test.skip=true
 ```
 
  5. **构建后操作**
+
 ![在这里插入图片描述](https://img-blog.csdn.net/20180930173444356?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J0Ym95aGFwcHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
 ![在这里插入图片描述](https://img-blog.csdn.net/20180930173453584?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J0Ym95aGFwcHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
 ## 6. 将jar包构建docker镜像
 执行shell脚本：
 ![在这里插入图片描述](https://img-blog.csdn.net/20180930173506272?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J0Ym95aGFwcHk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
 
 ```
 cp /root/.jenkins/workspace/demo/target/demo-0.0.1-SNAPSHOT.jar /root/demo
