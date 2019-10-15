@@ -10,7 +10,7 @@ permalink: /file/
     <ul class="post-list">
 
         <ul>
-            {% for post in site.date %}
+            {% for post in site %}
             {% if post.title != null %}
             <li>
                 <span>{{ post.date | date: "%b %d" }}</span>
