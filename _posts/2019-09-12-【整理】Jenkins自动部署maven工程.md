@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "【整理】Jenkins自动部署maven工程"
-date:   2019-09-12 00:05
+date:   2019-09-12 00:05:00
 categories: 整理
 permalink: /archivers/20190912
 ---
